@@ -25,12 +25,13 @@ resource "aws_instance" "blog_server" {
     associate_public_ip_address = "true"
     vpc_security_group_ids = [
         aws_security_group.webports.id,
-        var.mgmtsg
+        var.mgmtsg,
+        var.websg
     ]
 }
 
 resource "aws_s3_bucket" "s3_bucket" {
-    bucket = "kylesliva-blog-resources"
+    bucket = "cd60cbd5-kylesliva-blog-resources"
     acl = "public-read"
      server_side_encryption_configuration {
         rule {
@@ -59,7 +60,7 @@ resource "aws_security_group" "webports" {
         cidr_blocks = ["0.0.0.0/0"]
     }
     egress {
-        description = "port 4000 ingress"
+        description = "deadend"
         from_port   = 0
         to_port     = 0
         protocol    = "-1"

@@ -27,3 +27,9 @@ variable "mgmtsg" {
     type = string
     default = "sg-0eceea5b6a0370ad9"
 }
+
+variable "websg" {
+    description = "Web Egress SG"
+    type = string
+    default = "sg-0671f0b358f1ddf30"
+}
